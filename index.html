@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Leon CBC Tracker</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+
+<div id="sidebar">
+  <div onclick="showSection('dashboard')">Dashboard</div>
+  <div onclick="showSection('addStudent')">Add Student</div>
+  <div onclick="showSection('classPerformance')">Class Performance</div>
+  <div onclick="showSection('graphs')">Graphs</div>
+  <div onclick="showSection('downloadPDF')">Download Report Cards</div>
+</div>
+
+<div id="mainContent">
+  <div id="dashboard" class="card">Welcome! Please login or signup.</div>
+  <div id="addStudent" class="card" style="display:none;">
+    <h3>Add Student (Grade 7-9)</h3>
+    <input id="name" placeholder="Student Name">
+    <select id="grade"><option>7</option><option>8</option><option>9</option></select>
+    <select id="term"><option>Term 1 Mid</option><option>Term 1 End</option></select>
+    <input id="math" placeholder="Mathematics">
+    <input id="english" placeholder="English">
+    <input id="kiswahili" placeholder="Kiswahili">
+    <input id="science" placeholder="Integrated Science">
+    <input id="agri" placeholder="Agriculture">
+    <input id="social" placeholder="Social Studies">
+    <input id="pretech" placeholder="Pre-Technical">
+    <input id="religion" placeholder="Religious Studies">
+    <input id="creative" placeholder="Creative Arts">
+    <textarea id="comment" placeholder="Teacher Comment"></textarea>
+    <button onclick="addStudent()">Save</button>
+  </div>
+  <div id="classPerformance" class="card" style="display:none;">
+    <h3>Class Table</h3>
+    <table id="resultsTable"><thead><tr>
+      <th>Name</th><th>Grade</th><th>Term</th><th>Total</th><th>Mean</th><th>Band</th>
+    </tr></thead><tbody></tbody></table>
+  </div>
+  <div id="graphs" class="card" style="display:none;">
+    <canvas id="lineGraph"></canvas>
+  </div>
+  <div id="downloadPDF" class="card" style="display:none;">
+    <button onclick="downloadPDF()">Download CBC Report Cards</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
